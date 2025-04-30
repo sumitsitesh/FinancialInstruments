@@ -1,20 +1,21 @@
 import { useTableSort } from '../../hooks/useTableSort';
+import { FinancialRow } from '../../utils/sortFinancialData';
 import styles from './FinancialTable.module.css'
 import { useMemo } from 'react';
 
-interface FinancialTableProps<T extends Record<string, unknown>> {
+interface FinancialTableProps {
   columns: { field: string; headerName: string }[];
-  rowData: T[];
-  getRowClassName?: (row: T) => string;
+  rowData: FinancialRow[];
+  getRowClassName?: (row: FinancialRow) => string;
   getCellClassName?: (field: string, value: number) => string;
 }
 
-export const FinancialTable = <T extends Record<string, unknown>>({
+export const FinancialTable =({
   columns,
   rowData,
   getRowClassName,
   getCellClassName,
-}: FinancialTableProps<T>) => {
+}: FinancialTableProps) => {
   const { sortConfig, handleSort, getSortArrow, sortData } = useTableSort(columns[0].field);
 
   const sortedData = useMemo(() => sortData(rowData), [rowData, sortConfig]);

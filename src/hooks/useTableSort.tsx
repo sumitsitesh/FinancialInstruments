@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SortDirection, sortStrategies } from '../utils/sortFinancialData';
+import { FinancialRow, SortDirection, sortStrategies } from '../utils/sortFinancialData';
 
 type SortConfig = {
   key: string;
@@ -24,7 +24,7 @@ export const useTableSort = (defaultKey: string) => {
     return sortConfig.direction === 'asc' ? '▲' : '▼';
   };
 
-  const sortData = (rowData: any[]) => {
+  const sortData = (rowData: FinancialRow[]) => {
     const sortableItems = [...rowData];
     const sortFunction = sortStrategies[sortConfig.key];
     if (sortFunction) {

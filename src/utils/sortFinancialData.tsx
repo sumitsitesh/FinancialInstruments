@@ -2,7 +2,7 @@ export interface FinancialRow {
   assetClass: string;
   price: number;
   ticker: string;
-  [key: string]: unknown;
+  [key: string]: any;
 };
 
 export type SortDirection = 'asc' | 'desc';
@@ -22,4 +22,3 @@ export const sortStrategies: Record<string, (a: FinancialRow, b: FinancialRow) =
   price: sortByPrice,
   ticker: sortByTicker,
 };
-

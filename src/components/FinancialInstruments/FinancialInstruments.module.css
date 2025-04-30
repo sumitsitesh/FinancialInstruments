@@ -1,0 +1,24 @@
+.rowMacro {
+    background-color: rgb(254, 254, 254);
+  }
+  
+.rowEquities {
+    background-color: #ebf5ff; /*Update everything with salt variable color */
+  }
+  
+.rowCredit {
+    background-color: #e6f9e6;
+  }
+  
+.rowDefault {
+    background-color: #f2f2f2; 
+  }
+  
+.pricePositive {
+    color: #1e40af; 
+  
+  }
+  
+.priceNegative {
+    color: #dc2626; 
+  }

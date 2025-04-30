@@ -2,19 +2,19 @@ import { useTableSort } from '../../hooks/useTableSort';
 import styles from './FinancialTable.module.css'
 import { useMemo } from 'react';
 
-interface FinancialTableProps {
+interface FinancialTableProps<T extends Record<string, unknown>> {
   columns: { field: string; headerName: string }[];
-  rowData: any[];
-  getRowClassName?: (row: any) => string;
-  getCellClassName?: (field: string, value: any) => string; 
+  rowData: T[];
+  getRowClassName?: (row: T) => string;
+  getCellClassName?: (field: string, value: number) => string;
 }
 
-export const FinancialTable = ({
+export const FinancialTable = <T extends Record<string, unknown>>({
   columns,
   rowData,
   getRowClassName,
   getCellClassName,
-}:FinancialTableProps) => {
+}: FinancialTableProps<T>) => {
   const { sortConfig, handleSort, getSortArrow, sortData } = useTableSort(columns[0].field);
 
   const sortedData = useMemo(() => sortData(rowData), [rowData, sortConfig]);
@@ -28,7 +28,7 @@ export const FinancialTable = ({
               <th
                 key={col.field}
                 className={styles.th}
-                onClick={() => handleSort(col.field)} // check the table props to disable sorting on some column header.
+                onClick={() => handleSort(col.field)}
               >
                 <span style={{ marginRight: 6 }}>{col.headerName}</span>
                 <span style={{ fontSize: '0.7em', color: '#666' }}>{getSortArrow(col.field)}</span>

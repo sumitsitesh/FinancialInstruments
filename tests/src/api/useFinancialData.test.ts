@@ -1,14 +1,13 @@
-// tests/hooks/useFinancialData.test.ts
 import { renderHook, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import { useFinancialData } from '../../src/api/useFinancialData';
+import { useFinancialInstruments } from '../../../src/api/useFinancialInstruments';
 
 const mockData = [
   { ticker: 'AAPL', price: 150, assetClass: 'Equities' },
   { ticker: 'US10Y', price: 1.5, assetClass: 'Macro' },
 ];
 
-describe('useFinancialData', () => {
+describe('useFinancialInstruments', () => {
   beforeEach(() => {
     global.fetch = vi.fn(() =>
       Promise.resolve({
@@ -22,7 +21,7 @@ describe('useFinancialData', () => {
   });
 
   it('fetches and returns financial data', async () => {
-    const { result } = renderHook(() => useFinancialData());
+    const { result } = renderHook(() => useFinancialInstruments());
 
     await waitFor(() => {
       expect(result.current.length).toBeGreaterThan(0);

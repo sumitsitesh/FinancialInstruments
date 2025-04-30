@@ -1,22 +1,25 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './src/setupTests.ts', // optional setup file
+    setupFiles: './src/test/setupTests.ts', 
     include: ['tests/**/*.test.ts', 'tests/**/*.test.tsx'],
     coverage: {
-      provider: 'v8', // or 'c8' if you prefer
-      reporter: ['text', 'lcov', 'html'], // lcov for IDE support, html for folder-wise UI
+      provider: 'v8', 
+      reporter: ['text', 'lcov', 'html'], 
       reportsDirectory: './coverage',
-      all: true, // include files not directly tested
-      include: ['src/**/*.{ts,tsx}'], // your source files
-      exclude: ['**/tests/**', '**/*.test.*'], // optional
+      all: true,
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: ['**/tests/**', '**/*.test.*'],
     },
-
+  },
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly',
+    },
   },
 })

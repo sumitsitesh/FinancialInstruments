@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SortDirection,sortStrategies } from '../utils/sortFinancialData';
+import { SortDirection, sortStrategies } from '../utils/sortFinancialData';
 
 type SortConfig = {
   key: string;

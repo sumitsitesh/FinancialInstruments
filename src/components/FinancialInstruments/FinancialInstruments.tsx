@@ -1,6 +1,7 @@
-import { useFinancialData } from '../../api/useFinancialData';
-import { FinancialTable } from '../FinancialTable/FinancialTable';
 import { getRowBackgroundColor, getCellClassName } from './financialInstrumentsStyle';
+import { useFinancialInstruments } from '../../api/useFinancialInstruments';
+import { FinancialTable } from '../FinancialTable/FinancialTable';
+
 
 const columns = [
     { field: 'assetClass', headerName: 'Asset Class' },
@@ -9,7 +10,7 @@ const columns = [
 ];
 
 export const FinancialInstruments = () => {
-    const financialData = useFinancialData();
+    const financialData = useFinancialInstruments();
 
     return (
         <div>

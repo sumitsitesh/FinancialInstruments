@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
-
-interface FinancialInstrument {
-  ticker: string;
-  price: number;
-  assetClass: string;
-}
+import { FinancialRow } from "../utils/sortFinancialData";
 
 const API_URL = "/mockData/financialInstruments.json";
 
-export const useFinancialData = () => {
-  const [data, setData] = useState<FinancialInstrument[]>([]);
+export const useFinancialInstruments = () => {
+  const [data, setData] = useState<FinancialRow[]>([]);
 
   useEffect(() => {
-    fetch(API_URL) 
+    fetch(API_URL)
       .then((res) => res.json())
       .then((fetchedData) => setData(fetchedData))
       .catch((error) => console.error("Failed to fetch financial data", error));

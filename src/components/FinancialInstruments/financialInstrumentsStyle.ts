@@ -1,6 +1,7 @@
+import { FinancialRow } from '../../utils/sortFinancialData';
 import styles from './FinancialInstruments.module.css'; // adjust the correct path
 
-export const getRowBackgroundColor = (row: any) => {
+export const getRowBackgroundColor = (row: FinancialRow) => {
     switch (row.assetClass?.toLowerCase()) {
       case 'macro':
         return styles.rowMacro;

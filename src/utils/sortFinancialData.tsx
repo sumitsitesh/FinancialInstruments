@@ -1,7 +1,7 @@
 export interface FinancialRow {
-    assetClass?: string;
-    price?: number;
-    ticker?: string;
+    assetClass: string;
+    price: number ;
+    ticker: string;
     [key: string]: any;
   };
   
@@ -14,9 +14,8 @@ export const sortByAssetClass = (a: FinancialRow, b: FinancialRow) => {
     return indexA - indexB;
   };
 
-export const sortByPrice = (a: any, b: any) => a.price - b.price;
-
-export const sortByTicker = (a: any, b: any) => a.ticker.localeCompare(b.ticker);
+export const sortByPrice = (a: FinancialRow, b: FinancialRow) => a.price - b.price;
+export const sortByTicker = (a: FinancialRow, b: FinancialRow) => a.ticker.localeCompare(b.ticker);
 
 export const sortStrategies: Record<string, (a: any, b: any) => number> = {
   assetClass: sortByAssetClass,

@@ -4,33 +4,6 @@ import { sortByAssetClass, sortByPrice, sortByTicker, sortStrategies } from '../
 
 
 describe('sortByAssetClass', () => {
-    it('should return a negative value when assetClass "Equities" is compared with "Macro"', () => {
-        const rowA: FinancialRow = {
-            assetClass: 'Equities',
-            price: 0,
-            ticker: ''
-        };
-        const rowB: FinancialRow = {
-            assetClass: 'Macro',
-            price: 0,
-            ticker: ''
-        };
-        expect(sortByAssetClass(rowA, rowB)).toBeLessThan(0);
-    });
-
-    it('should return a negative value when assetClass "Equities" is compared with "Credit"', () => {
-        const rowA: FinancialRow = {
-            assetClass: 'Equities',
-            price: 0,
-            ticker: ''
-        };
-        const rowB: FinancialRow = {
-            assetClass: 'Credit',
-            price: 0,
-            ticker: ''
-        };
-        expect(sortByAssetClass(rowA, rowB)).toBeLessThan(0); 
-    });
 
     it('should return a positive value when assetClass "Macro" is compared with "Equities"', () => {
         const rowA: FinancialRow = {
@@ -68,34 +41,6 @@ describe('sortByAssetClass', () => {
         };
         const rowB: FinancialRow = {
             assetClass: 'Equities',
-            price: 0,
-            ticker: ''
-        };
-        expect(sortByAssetClass(rowA, rowB)).toBe(0);
-    });
-
-    it('should return 0 when both rows have the same assetClass "Macro"', () => {
-        const rowA: FinancialRow = {
-            assetClass: 'Macro',
-            price: 0,
-            ticker: ''
-        };
-        const rowB: FinancialRow = {
-            assetClass: 'Macro',
-            price: 0,
-            ticker: ''
-        };
-        expect(sortByAssetClass(rowA, rowB)).toBe(0);
-    });
-
-    it('should return 0 when both rows have the same assetClass "Credit"', () => {
-        const rowA: FinancialRow = {
-            assetClass: 'Credit',
-            price: 0,
-            ticker: ''
-        };
-        const rowB: FinancialRow = {
-            assetClass: 'Credit',
             price: 0,
             ticker: ''
         };

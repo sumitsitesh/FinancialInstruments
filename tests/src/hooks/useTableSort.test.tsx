@@ -7,13 +7,11 @@ type TestRow = {
   ticker: string;
 };
 
-// Mock sort strategy
 const mockSortStrategies = {
   price: (a: TestRow, b: TestRow) => a.price - b.price,
   ticker: (a: TestRow, b: TestRow) => a.ticker.localeCompare(b.ticker),
 };
 
-// Mock the module where sortStrategies is exported
 vi.mock('../utils/sortFinancialData', () => ({
   sortStrategies: mockSortStrategies,
 }));
